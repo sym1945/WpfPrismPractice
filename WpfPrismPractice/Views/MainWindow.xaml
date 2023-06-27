@@ -8,6 +8,17 @@
         mc:Ignorable="d"
         Title="{Binding Title}" Height="450" Width="800">
     <Grid>
-        <ContentControl prism:RegionManager.RegionName="ContentRegion"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <CheckBox IsChecked="{Binding IsChecked}">Can Navigate</CheckBox>
+            <Button Command="{Binding NavigateCommand}" CommandParameter="ViewA">Navigate to ViewA</Button>
+            <Button Command="{Binding NavigateCommand}" CommandParameter="ViewB">Navigate to ViewB</Button>
+        </StackPanel>
+        
+        <ContentControl Grid.Row="1" prism:RegionManager.RegionName="ContentRegion"/>
     </Grid>
 </Window>

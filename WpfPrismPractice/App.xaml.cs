@@ -1,4 +1,6 @@
-﻿using Prism.Ioc;
+﻿using ModuleA;
+using Prism.Ioc;
+using Prism.Modularity;
 using System.Windows;
 using WpfPrismPractice.Views;
 
@@ -17,6 +19,11 @@ namespace WpfPrismPractice
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+        }
+
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            moduleCatalog.AddModule<ModuleAModule>();
         }
     }
 }
